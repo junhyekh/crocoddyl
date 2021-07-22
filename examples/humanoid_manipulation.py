@@ -1,11 +1,13 @@
 import os
 import sys
 
-import crocoddyl
-from crocoddyl.utils.biped import plotSolution
+
+#from crocoddyl.utils.biped import plotSolution
+import pinocchio
 import numpy as np
 import example_robot_data
-import pinocchio
+
+import crocoddyl
 
 WITHDISPLAY = 'display' in sys.argv or 'CROCODDYL_DISPLAY' in os.environ
 WITHPLOT = 'plot' in sys.argv or 'CROCODDYL_PLOT' in os.environ
@@ -161,6 +163,6 @@ print('XY distance to CoM reference = ', np.linalg.norm(com[:2] - comRef[:2]))
 # Plotting the entire motion
 if WITHPLOT:
     log = ddp.getCallbacks()[0]
-    plotSolution(ddp, bounds=False, figIndex=1, show=False)
+    #plotSolution(ddp, bounds=False, figIndex=1, show=False)
 
     crocoddyl.plotConvergence(log.costs, log.u_regs, log.x_regs, log.grads, log.stops, log.steps, figIndex=3)
